@@ -33,6 +33,11 @@ g++ main.cpp -o main
 ```
 The result will be written to an output .txt file.
 
+## NOTE
+Some intiale state don't converge to the goal state. It is important to check it before
+running the algorithm. In this repository, it is implemented in the node class.
+In order to understand why some states converge and other don't. Please read [this](https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/) nice explanation.
+
 ## References
 [1]. https://github.com/Subangkar/N-Puzzle-Problem-CPP-Implementation-using-A-Star-Search
 
