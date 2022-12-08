@@ -12,6 +12,8 @@ value any level at node t. Mathematically it's given by:
 f = g + h
 ; where h is a heuristic value and g is the cost value to the node.
 
+![A_star_working](https://user-images.githubusercontent.com/61932757/206433479-57d67b6a-5e0f-4fe4-b473-582ccd47cd13.jpg)
+
 ## Installation
 
 Installation is pretty staright forward. Follow the instructions below:
