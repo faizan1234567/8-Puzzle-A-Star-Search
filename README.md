@@ -1,5 +1,5 @@
 
-# Project Title
+# A* Search Algorithm for solving 8-Puzzle problem
 
 A* search implementation for 8-puzzle problem in C++. A* search algorithm is
 a type of informed search strategy. Informed search algorithm are those that know 
