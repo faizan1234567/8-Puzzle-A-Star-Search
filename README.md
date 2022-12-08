@@ -23,9 +23,9 @@ Installation is pretty staright forward. Follow the instructions below:
   cd 8-Puzzle-A-Star-Star
 ```
 It will work with any C++ IDE/compiler. However, I would recommend running
-it in [VS code](https://readme.so/editor). Install the compiler if you have not by following the instructions [here](https://youtu.be/j8nAHeVKL08).
+it in [VS code](https://code.visualstudio.com/). Install the compiler if you have not by following the instructions [here](https://youtu.be/j8nAHeVKL08).
 
-After installing [compiler](https://www.ics.uci.edu/~pattis/common/handouts/mingweclipse/mingw.html) and [VS code](https://readme.so/editor)
+After installing [compiler](https://www.ics.uci.edu/~pattis/common/handouts/mingweclipse/mingw.html) and [VS code](https://code.visualstudio.com/)
 run the following command to run the algorithm.
 ```bash
 g++ main.cpp -o main
