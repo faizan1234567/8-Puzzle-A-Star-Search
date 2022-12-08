@@ -41,12 +41,12 @@ In order to understand why some states converge and other don't. Please read [th
 Please star the repository, if you use it in your projects or for learning purposes.
 
 ## References
-[1]. https://github.com/Subangkar/N-Puzzle-Problem-CPP-Implementation-using-A-Star-Search
+[1]. https://blog.goodaudience.com/solving-8-puzzle-using-a-algorithm-7b509c331288
 
 [2]. https://zoo.cs.yale.edu/classes/cs470/materials/aima2010.pdf
 
 [3]. https://www.geeksforgeeks.org/check-instance-8-puzzle-solvable/
 
-[4]. https://blog.goodaudience.com/solving-8-puzzle-using-a-algorithm-7b509c331288
+[4]. https://github.com/Subangkar/N-Puzzle-Problem-CPP-Implementation-using-A-Star-Search
 
 [5]. https://faramira.com/solving-8-puzzle-problem-using-a-star-search-in-c/
