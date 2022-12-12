@@ -49,6 +49,27 @@ void runSearchAlgorithm(const Node &Initial, const Node &Target, int h, bool sho
 	delete eightPuzzleSearch;
 }
 
+
+
+
+int** get_state(unsigned height, unsigned width)
+    { 
+      int** initial_state = 0;
+      initial_state = new int*[height];
+      cout<<"\nInital State Input:\n";
+	  for(int i=0; i<height; i++)
+	  { 
+        initial_state[i] = new int[width];
+	  	for(int j=0; j<width; j++)
+	  	{
+	  		cout<<"\ns["<<i<<"]["<<j<<"]=  ";
+	  		cin>>initial_state[i][j];
+		}
+	  } 
+      
+      return initial_state;
+    }
+
 int main() {
 	/*All the code goes here, it will execute our A* search algoirthm for 8 puzzle problem
 	goal state and initial state of the problem will be set here. Then running
@@ -65,7 +86,7 @@ int main() {
     //--------------------------------------------------------------------------------------
 	// read from the filed, and write our output to the file 
 	// freopen("input_8puzzle.txt", "r", stdin);
-	freopen("output_8puzzle.txt", "w", stdout);
+	// freopen("output_8puzzle.txt", "w", stdout);
 	// choose grid size, in this case it's 3 (3x3 board)
 	int gridSize = 3; // for 8 puzzle problem we have 3x3 grid, for other you can specify NXN grid
 	Node::boardSqSize = gridSize;
@@ -89,20 +110,37 @@ int main() {
     // setting up the initial node and assigning it the initial state of the problem
 	Node Initial;
 	// any state can be assigned as initial state
-	int initial_state[3][3] = {{1, 8 ,2},   // solution exists check ..
-                               {0, 4, 3},
-                               {7, 6, 5}};
-							   
+	// int initial_state[3][3] = {{1, 8 ,2},   // solution exists check ..
+    //                            {0, 4, 3},
+    //                            {7, 6, 5}};
+
+	//get initial state from the user...
+	int height = 3; // height of grid
+    int width = 3; // width of the grid
+    int** initial_state = get_state(height, width);
+	// print the inital state 
+    for (int h = 0; h < height; h++)
+      {
+            for (int w = 0; w < width; w++)
+            {
+                //   printf("%i,", my2DArray[h][w]);
+                cout<<initial_state[h][w]<<" ";
+				Initial.A[h][w] = initial_state[h][w];
+            }
+            cout<<"\n";
+      }
+	//-----------------------------------------------------------------------						   
     //  int initial_state[3][3] = {{8, 1, 3},
     //                             {0, 4, 5}, // when no solutin exists check ...
     //                             {7, 6, 2}};
-	 for (int i = 0; i < gridSize; i++)
-	{
-		for (int j = 0; j < gridSize; j++)
-		{
-			Initial.A[i][j] = initial_state[i][j];
-		}
-	}
+	//  for (int i = 0; i < gridSize; i++)
+	// {
+	// 	for (int j = 0; j < gridSize; j++)
+	// 	{
+	// 		Initial.A[i][j] = initial_state[i][j];
+	// 	}
+	// }
+	//--------------------------------------------------------------------------
 
 	cout << "Initial State: \n" << Initial;
 	cout << "Goal State: \n" << Target;
