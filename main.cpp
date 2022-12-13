@@ -50,10 +50,27 @@ void runSearchAlgorithm(const Node &Initial, const Node &Target, int h, bool sho
 }
 
 
+
+int** get_state(unsigned height, unsigned width)
+    { 
+      int** initial_state = 0;
+      initial_state = new int*[height];
+      cout<<"\nInital State Input:\n";
+	  for(int i=0; i<height; i++)
+	  { 
+        initial_state[i] = new int[width];
+	  	for(int j=0; j<width; j++)
+	  	{
+	  		cout<<"\ns["<<i<<"]["<<j<<"]=  ";
+	  		cin>>initial_state[i][j];
+		}
+	  } 
+      
+      return initial_state;
+    }
+
 int main() {
-	/*All the code goes here, it will execute our A* search algoirthm for 8 puzzle problem
-	goal state and initial state of the problem will be set here. Then running
-	the search algoritm will expand the tree to search for the solution. In this case,
+	/*the search algoritm will expand the tree to search for the solution. In this case,
 	I use two types of heuristics, the first one is Hamming heuristic (h1) and the second
 	one is Manhatten heuristic (h2), both of them are used to measure the estimated cost for
 	reaching to the goal state
