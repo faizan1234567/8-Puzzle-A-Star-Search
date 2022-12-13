@@ -50,6 +50,7 @@ void runSearchAlgorithm(const Node &Initial, const Node &Target, int h, bool sho
 }
 
 
+<<<<<<< Updated upstream
 
 
 int** get_state(unsigned height, unsigned width)
@@ -70,6 +71,8 @@ int** get_state(unsigned height, unsigned width)
       return initial_state;
     }
 
+=======
+>>>>>>> Stashed changes
 int main() {
 	/*All the code goes here, it will execute our A* search algoirthm for 8 puzzle problem
 	goal state and initial state of the problem will be set here. Then running
