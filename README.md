@@ -33,6 +33,13 @@ g++ main.cpp -o main
 ```
 The result will be written to an output .txt file.
 
+# New Features
+ - Duplicate entries checker code
+ - User input on run time
+ - Convergence and devergence check
+ - Optimized memory 
+ - Option to write program input/output to the .txt file.
+
 ## Note
 Some intiale state don't converge to the goal state. It is important to check it before
 running the algorithm. In this repository, it is implemented in the node class.
