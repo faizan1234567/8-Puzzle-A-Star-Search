@@ -34,7 +34,7 @@ g++ main.cpp -o main
 The result will be written to an output .txt file.
 
 ## New Features
- - Duplicate entries checker code
+ - Duplicate entries checker code for a given initial state
  - User input on run time
  - Convergence and devergence check
  - Optimized memory 
