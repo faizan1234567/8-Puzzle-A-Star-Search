@@ -33,7 +33,7 @@ g++ main.cpp -o main
 ```
 The result will be written to an output .txt file.
 
-# New Features
+## New Features
  - Duplicate entries checker code
  - User input on run time
  - Convergence and devergence check
