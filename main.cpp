@@ -126,6 +126,8 @@ int main() {
 	
     // setting up the initial node and assigning it the initial state of the problem
 	Node Initial;
+	// please use the below state for solution check, there are two states given
+	// one converges and other doesn't. Both of them have been labled.
 	// any state can be assigned as initial state
 	// int initial_state[3][3] = {{1, 8 ,2},   // solution exists check ..
     //                            {0, 4, 3},
