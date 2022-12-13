@@ -8,8 +8,8 @@ Subject: Artifical intelligence
 // add some necceassry packages to run this file ..
 #include "node.h"
 #include "AStar.h" 
+#include <string.h>
 #include <chrono>
-#define MAX 105
 
 
 void showProgress(aStarSearchAlgorithm &eightPuzzleSolver, const Node &Initial, const Node &Target) {
@@ -69,6 +69,26 @@ int** get_state(unsigned height, unsigned width)
       return initial_state;
     }
 
+bool duplicate_check(int state[3][3])
+{
+    int nums[3*3];
+
+    // Copy into 1D array
+    memcpy(nums,state,9*sizeof(int));
+    // cout<<nums[8]<<endl;
+
+
+    int i, j;
+    bool duplicate = false;
+    int size = sizeof(nums)/sizeof(nums[0]);
+    for(i = 0; i < size; i++)
+    for(j = i+1; j < size; j++)
+      if(nums[i] == nums[j]){
+        duplicate = true; break;}
+
+    return duplicate;   
+}
+
 int main() {
 	/*the search algoritm will expand the tree to search for the solution. In this case,
 	I use two types of heuristics, the first one is Hamming heuristic (h1) and the second
@@ -95,7 +115,7 @@ int main() {
 	int goal_state[3][3] =  {{1, 2 ,3},
                              {4, 5, 6},
                              {7, 8, 0}};
-
+  
     for (int m = 0; m < gridSize; m++)
 	{
 		for (int n = 0; n < gridSize; n++)
@@ -115,13 +135,15 @@ int main() {
 	int height = 3; // height of grid
     int width = 3; // width of the grid
     int** initial_state = get_state(height, width);
+	int start_state[3][3];
 	// print the inital state 
     for (int h = 0; h < height; h++)
       {
             for (int w = 0; w < width; w++)
             {
-                //   printf("%i,", my2DArray[h][w]);
+                
                 cout<<initial_state[h][w]<<" ";
+				start_state[h][w] = initial_state[h][w];
 				Initial.A[h][w] = initial_state[h][w];
             }
             cout<<"\n";
@@ -138,31 +160,40 @@ int main() {
 	// 	}
 	// }
 	//--------------------------------------------------------------------------
+    bool duplicate = false;
+	duplicate = duplicate_check(start_state);
+    if (!duplicate)
+	{
+		cout << "Initial State: \n" << Initial;
+		cout << "Goal State: \n" << Target;
+		
+		// pick the heursitic type for h estimation by default I sat it to Manhatten cost
+		string choose_heuristic = "h2";
 
-	cout << "Initial State: \n" << Initial;
-	cout << "Goal State: \n" << Target;
-    
-	// pick the heursitic type for h estimation by default I sat it to Manhatten cost
-	string choose_heuristic = "h2";
+		// check whether the solution exists or not, if it does then run the search algorithm 
+		// to find the goal state.
+		if (!Initial.isSolveAble()) {
+			cout << "Solution doesn't exists!!!!" << endl;
 
-    // check whether the solution exists or not, if it does then run the search algorithm 
-	// to find the goal state.
-	if (!Initial.isSolveAble()) {
-		cout << "Solution doesn't exists!!!!" << endl;
-
-	} 
-	// run the algorithm 
-	else {
-		{
-			if (choose_heuristic == "h1")
+		} 
+		// run the algorithm 
+		else 
 			{
-				cout << "Running Hamming heuristic for h estimation: " << endl;
-				runSearchAlgorithm(Initial, Target, H1, true);}
-			else{
-				cout << "Running Manhatten cost for h estimation: "<<endl;
-				runSearchAlgorithm(Initial, Target, H2, true);
+				if (choose_heuristic == "h1")
+				{
+					cout << "Running Hamming heuristic for h estimation: " << endl;
+					runSearchAlgorithm(Initial, Target, H1, true);}
+				else{
+					cout << "Running Manhatten cost for h estimation: "<<endl;
+					runSearchAlgorithm(Initial, Target, H2, true);
+				}
 			}
-		}
+		
+    }
+	else{
+		cout<<"Duplicate entries found, please correct the array!!!"<<endl;
 	}
+	return 0;
 }
+
 //the end..

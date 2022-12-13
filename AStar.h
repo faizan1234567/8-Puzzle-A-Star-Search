@@ -67,7 +67,7 @@ public:
 			for (int j = 0; j < Node::boardSqSize; j++)
 				if (goal_state.A[i][j])
 					cost += abs(pR[goal_state.A[i][j]] - i) + abs(pC[goal_state.A[i][j]] - j);
-		cout<<"cost: "<< cost <<endl;
+		// cout<<"cost: "<< cost <<endl;
 		return cost;
 
 	}
@@ -177,4 +177,4 @@ public:
 	}
 };
 
-// #endif //NPUZZLE_ASTARSEARCH_H
+
