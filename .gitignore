@@ -2,3 +2,4 @@ main
 *.pdf
 *.png
 *.exe
+.vscode/
