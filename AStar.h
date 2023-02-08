@@ -1,6 +1,4 @@
-//
-// Created by subangkar on 11/25/18.
-//
+//Author Faizan
 #include <set>
 #include "node.h" 
 
